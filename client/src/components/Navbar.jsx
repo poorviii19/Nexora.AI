@@ -2,9 +2,11 @@ import React from 'react'
 import { assets } from '../assets/assets'
 import { ArrowRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-
+import{useClerk, UserButton, useUser} from '@clerk/react'
 const Navbar = () => {
     const navigate = useNavigate()
+    const {user} = useUser()
+    const {openSignIn} = useClerk()
   return (
     <div className='fixed
     z-10 w-full backdrop-blur-2xl
@@ -15,9 +17,15 @@ const Navbar = () => {
             navigate('/')
         }/>
 
-        <button className='flex items-center
-      gap-2 rounded-full text-sm cursor-pointer
-      bg-red-700 text-white px-10 py-2.5'>Get Started <ArrowRight className = 'w-4 h-4' /></button>
+        {
+          user ? <UserButton/> : (
+
+          <button onClick = {openSignIn} className='flex items-center
+          gap-2 rounded-full text-sm cursor-pointer
+          bg-red-700 text-white px-10 py-2.5'>Get Started <ArrowRight className = 'w-4 h-4' /></button>
+          )
+        }
+
 
     </div>
   )
