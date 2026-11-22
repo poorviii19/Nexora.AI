@@ -29,8 +29,8 @@ const Sidebar = ({ sidebar, setSidebar }) => {
       <h1 className='mt-1 text-center'>{user?.fullName}</h1>
       <div>
         {navItems.map(({to, label, Icon})=>(
-          <NavLink key={to} to={to} end={to === '/ai/'} onClick={()=>
-          setSidebar(false)} className={({isActive})=> `px-3.5 py-2.5 flex items-center gap-3 rounded ${isActive ? 'bg-gradient-to-r from-[#cf051d] to-[#f3551c] text-white' : ''}`}>
+            <NavLink key={to} to={to} end={to === '/ai'} onClick={() =>
+          setSidebar(false)} className={({isActive})=> `px-3.5 py-2.5 flex items-center gap-3 rounded ${isActive ? 'bg-linear-to-r from-[#cf051d] to-[#f3551c] text-white' : ''}`}>
             
             {({ isActive })=>(
               <>

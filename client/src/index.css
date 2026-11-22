@@ -9,3 +9,6 @@
     --color-primary: #cc0000;
 }
 
+.reset-tw, .reset-tw *{
+    all:revert !important;
+}
